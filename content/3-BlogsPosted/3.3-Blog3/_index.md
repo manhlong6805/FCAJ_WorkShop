@@ -7,23 +7,31 @@ pre: " <b> 3.3. </b> "
 ---
 
 
-# SESSION POLICIES IN AMAZON EKS POD IDENTITY
+# BLOG 3: Using AI for Automated Website Testing with Amazon Nova Act
 
-Amazon EKS Pod Identity has recently added the session policies feature, allowing you to narrow IAM permissions flexibly and precisely for each pod without needing to create many separate IAM roles. This is an important step forward that helps apply the principle of least privilege more effectively in large-scale Kubernetes environments.
+This blog post from AWS introduces how Epsilon company applies Amazon Nova Act and Amazon Bedrock AgentCore Browser to build an automated system for testing website interfaces using artificial intelligence. Traditional testing methods often require programmers to write code and define interface elements, which is time-consuming when the website changes. Epsilon's solution allows testing steps to be described in natural language, helping to simplify the testing process and reduce code maintenance.
 
-Key points to know:
+**Key points to know:**
 
-* A session policy is an inline IAM policy specified when creating or updating a Pod Identity association.
-* Effective permissions = intersection between the IAM role permissions and the session policy → the session policy can only narrow permissions, not expand them.
-* Helps avoid over-permissioning when reusing a single IAM role for multiple workloads with different needs.
-* Supports both same-account and cross-account (via IAM role chaining).
-* Significantly reduces the number of IAM roles that need to be managed, helping avoid hitting IAM quota limits in large clusters.
-* Easily configured through the AWS Management Console, AWS CLI, or AWS SDK when creating an association between a Kubernetes ServiceAccount and an IAM role.
+* Amazon Nova Act is a service designed to help build AI agents capable of interacting with website interfaces based on natural language instructions.
 
-This feature is especially useful when you have many applications running on the same IAM role but need different permission restrictions (for example: one pod only reads a specific S3 bucket, another pod only calls certain APIs).
+* Intent-driven UI Testing allows users to define testing objectives, eliminating the need to write code for every individual action on the interface.
 
-...Image...
+* Amazon Bedrock AgentCore Browser provides a managed browser environment for executing automated test tasks.
 
-...Link...
+* Natural Language Instructions enable the AI ​​to understand and perform actions such as entering data, clicking buttons, scrolling through pages, and verifying outcomes.
 
-...Guide...
+* Amazon S3 is used to store screenshots, reports, and the results of the testing process.
+
+* AWS IAM facilitates access management and the isolation of testing environments across different development teams.
+
+* Automated Test Reporting tracks the success or failure status of each test step, aiding in error analysis.
+
+* The system can integrate AI-driven testing with Playwright, combining the AI’s ability to interpret interfaces with the stability of traditional testing methods.
+
+According to Epsilon’s internal testing results, Amazon Nova Act reduces the effort required to build test scripts by approximately 4–6 times compared to an equivalent approach using Playwright. This solution demonstrates the potential of Agentic AI in automating software testing, shortening script development time, and enhancing the efficiency of quality management for web applications.
+
+**Testing Service Architecture**
+![Testing Service Architecture](/images/blog3.png)
+
+**Original article link:**https://aws.amazon.com/vi/blogs/machine-learning/building-intent-driven-ui-testing-with-amazon-nova-act/

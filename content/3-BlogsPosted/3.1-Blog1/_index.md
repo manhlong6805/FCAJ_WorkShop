@@ -7,23 +7,26 @@ pre: " <b> 3.1. </b> "
 ---
 
 
-# SESSION POLICIES IN AMAZON EKS POD IDENTITY
+# BUILDING SECURE MULTI-USER AI SYSTEMS WITH AMAZON BEDROCK
 
-Amazon EKS Pod Identity has recently added the session policies feature, allowing you to narrow IAM permissions flexibly and precisely for each pod without needing to create many separate IAM roles. This is an important step forward that helps apply the principle of least privilege more effectively in large-scale Kubernetes environments.
+An AWS blog post highlights how PAR Technology developed a multi-tenant AI system using Amazon Bedrock to enable natural language data analysis. A key challenge was allowing multiple users to share the same AI system while ensuring robust security and precise access control. To address this, PAR Technology implemented a three-layered security architecture designed to prevent unauthorized access and mitigate the risk of data leakage between organizations.
 
-Key points to know:
+**Key points to know:**
 
-* A session policy is an inline IAM policy specified when creating or updating a Pod Identity association.
-* Effective permissions = intersection between the IAM role permissions and the session policy → the session policy can only narrow permissions, not expand them.
-* Helps avoid over-permissioning when reusing a single IAM role for multiple workloads with different needs.
-* Supports both same-account and cross-account (via IAM role chaining).
-* Significantly reduces the number of IAM roles that need to be managed, helping avoid hitting IAM quota limits in large clusters.
-* Easily configured through the AWS Management Console, AWS CLI, or AWS SDK when creating an association between a Kubernetes ServiceAccount and an IAM role.
+* Multi-tenant AI allows multiple organizations to share a single AI system, while ensuring that each organization’s data remains independently protected.
+* Amazon Bedrock provides AI models capable of interpreting natural language questions and generating SQL queries for data analysis.
+* AWS Signature Version 4 (SigV4) authenticates identities and ensures the integrity of access requests.
+* Semantic Validation examines the content of a question to verify that the request is valid before any data is retrieved.
+* Row-Level Security restricts access to individual data rows based on user roles and identities.
+* Split-Plane SQL decouples the process of enforcing data access permissions from the AI-driven query generation process, preventing the model from accessing data outside its authorized scope.
+* The system employs a multi-layered security architecture to mitigate the risk of data leakage, even in the event that the AI ​​model generates an incorrect query.
 
-This feature is especially useful when you have many applications running on the same IAM role but need different permission restrictions (for example: one pod only reads a specific S3 bucket, another pod only calls certain APIs).
+This solution is particularly useful for businesses that provide AI applications to multiple clients, where access control and data protection are critical requirements. It demonstrates how Amazon Bedrock can be integrated with AWS security mechanisms to build AI systems that are flexible, secure, and scalable.
 
-...Image...
+**Hierarchical structure**
+![Hierarchical structure](/images/structured.png)
 
-...Link...
+**Multi-user AI architecture**
+![Multi-user AI architecture](/images/blog1.png)
 
-...Guide...
+**Link to original article**https://aws.amazon.com/vi/blogs/machine-learning/multi-tenant-llm-analytics-with-row-level-security-how-we-built-a-secure-agent-on-aws/

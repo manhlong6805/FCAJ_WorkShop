@@ -7,23 +7,32 @@ pre: " <b> 3.2. </b> "
 ---
 
 
-# SESSION POLICIES IN AMAZON EKS POD IDENTITY
+# BLOG 2: Accelerating and securing your website with Amazon CloudFront and AWS WAF
 
-Amazon EKS Pod Identity has recently added the session policies feature, allowing you to narrow IAM permissions flexibly and precisely for each pod without needing to create many separate IAM roles. This is an important step forward that helps apply the principle of least privilege more effectively in large-scale Kubernetes environments.
+This AWS blog post explains how to combine Amazon CloudFront and AWS Web Application Firewall (WAF) to improve performance and enhance security for web applications. Websites often face challenges such as slow page load times, sudden spikes in traffic, and the risk of cyberattacks. AWS recommends using CloudFront to optimize content delivery, and AWS WAF to monitor and block malicious requests before they reach your servers.
 
-Key points to know:
+**Key points to know:**
 
-* A session policy is an inline IAM policy specified when creating or updating a Pod Identity association.
-* Effective permissions = intersection between the IAM role permissions and the session policy → the session policy can only narrow permissions, not expand them.
-* Helps avoid over-permissioning when reusing a single IAM role for multiple workloads with different needs.
-* Supports both same-account and cross-account (via IAM role chaining).
-* Significantly reduces the number of IAM roles that need to be managed, helping avoid hitting IAM quota limits in large clusters.
-* Easily configured through the AWS Management Console, AWS CLI, or AWS SDK when creating an association between a Kubernetes ServiceAccount and an IAM role.
+* Amazon CloudFront is a Content Delivery Network (CDN) service that facilitates the delivery of website content through a global network of Edge Locations.
 
-This feature is especially useful when you have many applications running on the same IAM role but need different permission restrictions (for example: one pod only reads a specific S3 bucket, another pod only calls certain APIs).
+* Edge Locations bring content closer to users, reducing latency and improving page load speeds.
 
-...Image...
+* Caching allows CloudFront to store content temporarily, decreasing the number of requests sent to the Origin Server.
 
-...Link...
+* A CloudFront Distribution manages content delivery configurations, including Origins, Cache Behaviors, and related policies.
 
-...Guide...
+* AWS WAF protects web applications against threats such as SQL injection, malicious bots, and various forms of HTTP-based attacks.
+
+* A Web Access Control List (Web ACL) enables the definition of rules to inspect, block, or limit incoming access requests.
+
+* AWS Managed Rules provide pre-configured security rules designed to detect common threats.
+
+* Amazon CloudWatch and AWS WAF Logs facilitate the monitoring of system performance, traffic, and security-related activity.
+
+Combining Amazon CloudFront and AWS WAF helps websites improve response speeds, reduce server load, and strengthen defenses against malicious requests. This is a key solution for building web applications on the AWS platform that offer high performance, high availability, and robust security.
+
+**Website architecture diagram incorporating Amazon CloudFront and AWS WAF**
+![Website architecture diagram incorporating Amazon CloudFront and AWS WAF](/images/blog2.png)
+
+**Original article link:**https://aws.amazon.com/vi/blogs/networking-and-content-delivery/accelerate-and-protect-your-websites-using-amazon-cloudfront-and-aws-waf/
+

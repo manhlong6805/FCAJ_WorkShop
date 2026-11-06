@@ -6,23 +6,32 @@ chapter: false
 pre: " <b> 3.3. </b> "
 ---
 
-# SESSION POLICIES TRONG AMAZON EKS POD IDENTITY
+# BLOG 3: Ứng dụng AI để tự động kiểm thử website với Amazon Nova Act
 
-Amazon EKS Pod Identity vừa bổ sung tính năng session policies, cho phép bạn thu hẹp quyền IAM một cách linh hoạt và chính xác cho từng pod mà không cần tạo thêm nhiều IAM roles riêng biệt. Đây là bước tiến quan trọng giúp áp dụng nguyên tắc least privilege hiệu quả hơn trong môi trường Kubernetes quy mô lớn.
+Bài blog từ AWS giới thiệu cách công ty Epsilon ứng dụng Amazon Nova Act và Amazon Bedrock AgentCore Browser để xây dựng hệ thống tự động kiểm thử giao diện website bằng trí tuệ nhân tạo. Phương pháp kiểm thử truyền thống thường yêu cầu lập trình viên viết mã và xác định các thành phần giao diện, gây tốn thời gian khi website thay đổi. Giải pháp của Epsilon cho phép mô tả các bước kiểm thử bằng ngôn ngữ tự nhiên, giúp đơn giản hóa quy trình kiểm thử và giảm công việc bảo trì mã lệnh.
 
-Các điểm chính cần nắm:
+**Các điểm chính cần nắm:**
 
-* Session policy là một IAM policy inline được chỉ định khi tạo hoặc cập nhật Pod Identity association.
-* Quyền hiệu quả = intersection (giao) giữa permissions của IAM role và session policy → session policy chỉ có thể thu hẹp, không thể mở rộng quyền.
-* Giúp tránh tình trạng over-permissioning khi reuse chung một IAM role cho nhiều workloads có nhu cầu khác nhau.
-* Hỗ trợ cả same-account và cross-account (qua IAM role chaining).
-* Giảm đáng kể số lượng IAM roles cần quản lý, tránh chạm giới hạn quota IAM trong cluster lớn.
-* Cấu hình dễ dàng qua AWS Management Console, AWS CLI hoặc AWS SDK khi tạo association giữa Kubernetes ServiceAccount và IAM role.
+* Amazon Nova Act là dịch vụ hỗ trợ xây dựng AI Agent có khả năng tương tác với giao diện website dựa trên chỉ dẫn bằng ngôn ngữ tự nhiên.
 
-Tính năng này đặc biệt hữu ích khi bạn có nhiều ứng dụng chạy trên cùng một IAM role nhưng cần giới hạn quyền khác nhau (ví dụ: một pod chỉ đọc S3 bucket cụ thể, pod khác chỉ gọi một số API nhất định).
+* Intent-driven UI Testing cho phép mô tả mục tiêu kiểm thử thay vì phải viết mã điều khiển từng thao tác trên giao diện.
 
-...Hình ảnh...
+* Amazon Bedrock AgentCore Browser cung cấp môi trường trình duyệt được quản lý để thực hiện các tác vụ kiểm thử tự động.
 
-...Link...
+* Natural Language Instructions giúp AI hiểu và thực hiện các hành động như nhập dữ liệu, nhấn nút, cuộn trang và kiểm tra kết quả.
 
-...Hướng dẫn...
+* Amazon S3 lưu trữ ảnh chụp màn hình, báo cáo và kết quả của quá trình kiểm thử.
+
+* AWS IAM hỗ trợ quản lý quyền truy cập và cách ly môi trường kiểm thử giữa các nhóm phát triển.
+
+* Automated Test Reporting ghi nhận trạng thái thành công hoặc thất bại của từng bước kiểm thử, hỗ trợ phân tích lỗi.
+
+* Hệ thống có thể kết hợp AI Testing với Playwright để tận dụng khả năng hiểu giao diện của AI và tính ổn định của các bài kiểm thử truyền thống.
+
+Theo kết quả thử nghiệm nội bộ của Epsilon, Amazon Nova Act giúp giảm công sức xây dựng kịch bản kiểm thử khoảng 4–6 lần so với phương pháp Playwright tương đương. Giải pháp cho thấy tiềm năng của Agentic AI trong việc tự động hóa kiểm thử phần mềm, giảm thời gian xây dựng kịch bản và nâng cao hiệu quả quản lý chất lượng ứng dụng web.
+
+**Kiến trúc dịch vụ kiểm thử**
+![Kiến trúc dịch vụ kiểm thử](/images/blog3.png)
+
+**Link bài gốc:**https://aws.amazon.com/vi/blogs/machine-learning/building-intent-driven-ui-testing-with-amazon-nova-act/
+

@@ -7,23 +7,32 @@ pre: " <b> 3.2. </b> "
 ---
 
 
-# SESSION POLICIES TRONG AMAZON EKS POD IDENTITY
+# BLOG 2: Tăng tốc và bảo mật website với Amazon CloudFront và AWS WAF
 
-Amazon EKS Pod Identity vừa bổ sung tính năng session policies, cho phép bạn thu hẹp quyền IAM một cách linh hoạt và chính xác cho từng pod mà không cần tạo thêm nhiều IAM roles riêng biệt. Đây là bước tiến quan trọng giúp áp dụng nguyên tắc least privilege hiệu quả hơn trong môi trường Kubernetes quy mô lớn.
+Bài blog từ AWS giới thiệu cách kết hợp Amazon CloudFront và AWS Web Application Firewall (WAF) để cải thiện hiệu suất và tăng cường bảo mật cho các ứng dụng web. Trong quá trình hoạt động, website thường gặp những vấn đề như thời gian tải trang chậm, lưu lượng truy cập tăng đột biến và nguy cơ bị tấn công mạng. AWS đề xuất sử dụng CloudFront để tối ưu quá trình phân phối nội dung và AWS WAF để kiểm soát, ngăn chặn các yêu cầu độc hại trước khi chúng tiếp cận máy chủ.
 
-Các điểm chính cần nắm:
+**Các điểm chính cần nắm:**
 
-* Session policy là một IAM policy inline được chỉ định khi tạo hoặc cập nhật Pod Identity association.
-* Quyền hiệu quả = intersection (giao) giữa permissions của IAM role và session policy → session policy chỉ có thể thu hẹp, không thể mở rộng quyền.
-* Giúp tránh tình trạng over-permissioning khi reuse chung một IAM role cho nhiều workloads có nhu cầu khác nhau.
-* Hỗ trợ cả same-account và cross-account (qua IAM role chaining).
-* Giảm đáng kể số lượng IAM roles cần quản lý, tránh chạm giới hạn quota IAM trong cluster lớn.
-* Cấu hình dễ dàng qua AWS Management Console, AWS CLI hoặc AWS SDK khi tạo association giữa Kubernetes ServiceAccount và IAM role.
+* Amazon CloudFront là dịch vụ Content Delivery Network (CDN), giúp phân phối nội dung website thông qua mạng lưới Edge Locations toàn cầu.
 
-Tính năng này đặc biệt hữu ích khi bạn có nhiều ứng dụng chạy trên cùng một IAM role nhưng cần giới hạn quyền khác nhau (ví dụ: một pod chỉ đọc S3 bucket cụ thể, pod khác chỉ gọi một số API nhất định).
+* Edge Locations đưa nội dung đến gần người dùng hơn, giúp giảm độ trễ và cải thiện tốc độ tải trang.
 
-...Hình ảnh...
+* Caching cho phép CloudFront lưu trữ nội dung tạm thời, giảm số lượng yêu cầu gửi đến Origin Server.
 
-...Link...
+* CloudFront Distribution quản lý cấu hình phân phối nội dung, bao gồm Origins, Cache Behaviors và các chính sách liên quan.
 
-...Hướng dẫn...
+* AWS WAF bảo vệ ứng dụng web trước các mối đe dọa như SQL Injection, bot độc hại và một số hình thức tấn công HTTP.
+
+* Web Access Control List (Web ACL) cho phép thiết lập quy tắc kiểm tra, chặn hoặc giới hạn yêu cầu truy cập.
+
+* AWS Managed Rules cung cấp các quy tắc bảo mật được quản lý sẵn, hỗ trợ phát hiện những mối đe dọa phổ biến.
+
+* Amazon CloudWatch và AWS WAF Logs hỗ trợ theo dõi hiệu suất, lưu lượng truy cập và hoạt động bảo mật của hệ thống.
+
+Việc kết hợp Amazon CloudFront và AWS WAF giúp website nâng cao tốc độ phản hồi, giảm tải cho máy chủ và tăng khả năng phòng vệ trước các yêu cầu độc hại. Đây là giải pháp quan trọng trong việc xây dựng các ứng dụng web có hiệu suất tốt, tính sẵn sàng cao và khả năng bảo mật hiệu quả trên nền tảng AWS.
+
+**Sơ đồ kiến trúc website kết hợp Amazon CloudFront và AWS WAF**
+![Sơ đồ kiến trúc website kết hợp Amazon CloudFront và AWS WAF](/images/blog2.png)
+
+**Link bài gốc:**https://aws.amazon.com/vi/blogs/networking-and-content-delivery/accelerate-and-protect-your-websites-using-amazon-cloudfront-and-aws-waf/
+

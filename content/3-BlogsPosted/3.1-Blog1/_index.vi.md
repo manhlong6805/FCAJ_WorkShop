@@ -7,23 +7,27 @@ pre: " <b> 3.1. </b> "
 ---
 
 
-# SESSION POLICIES TRONG AMAZON EKS POD IDENTITY
+# Blog 1 - XÂY DỰNG HỆ THỐNG AI ĐA NGƯỜI DÙNG AN TOÀN VỚI AMAZON BEDROCK
 
-Amazon EKS Pod Identity vừa bổ sung tính năng session policies, cho phép bạn thu hẹp quyền IAM một cách linh hoạt và chính xác cho từng pod mà không cần tạo thêm nhiều IAM roles riêng biệt. Đây là bước tiến quan trọng giúp áp dụng nguyên tắc least privilege hiệu quả hơn trong môi trường Kubernetes quy mô lớn.
+Bài blog từ AWS giới thiệu cách PAR Technology xây dựng hệ thống AI đa người dùng (Multi-tenant AI) sử dụng Amazon Bedrock để phân tích dữ liệu bằng ngôn ngữ tự nhiên. Thách thức chính là đảm bảo nhiều người dùng có thể sử dụng chung một hệ thống AI nhưng vẫn duy trì tính bảo mật và phân quyền truy cập dữ liệu chính xác. Để giải quyết vấn đề này, PAR Technology đã xây dựng kiến trúc bảo mật ba lớp nhằm ngăn chặn truy cập trái phép và hạn chế nguy cơ rò rỉ dữ liệu giữa các tổ chức.
 
-Các điểm chính cần nắm:
+ **Các điểm chính cần nắm:** 
 
-* Session policy là một IAM policy inline được chỉ định khi tạo hoặc cập nhật Pod Identity association.
-* Quyền hiệu quả = intersection (giao) giữa permissions của IAM role và session policy → session policy chỉ có thể thu hẹp, không thể mở rộng quyền.
-* Giúp tránh tình trạng over-permissioning khi reuse chung một IAM role cho nhiều workloads có nhu cầu khác nhau.
-* Hỗ trợ cả same-account và cross-account (qua IAM role chaining).
-* Giảm đáng kể số lượng IAM roles cần quản lý, tránh chạm giới hạn quota IAM trong cluster lớn.
-* Cấu hình dễ dàng qua AWS Management Console, AWS CLI hoặc AWS SDK khi tạo association giữa Kubernetes ServiceAccount và IAM role.
+* Multi-tenant AI cho phép nhiều tổ chức sử dụng chung một hệ thống AI nhưng dữ liệu của từng tổ chức phải được bảo vệ độc lập.
+* Amazon Bedrock cung cấp mô hình AI giúp hiểu câu hỏi bằng ngôn ngữ tự nhiên và tạo truy vấn SQL phục vụ phân tích dữ liệu.
+* AWS Signature Version 4 (SigV4) xác thực danh tính và bảo vệ tính toàn vẹn của yêu cầu truy cập.
+* Semantic Validation kiểm tra nội dung câu hỏi, đảm bảo yêu cầu hợp lệ trước khi truy xuất dữ liệu.
+* Row-Level Security giới hạn quyền truy cập đến từng hàng dữ liệu theo vai trò và danh tính người dùng.
+* Split-Plane SQL tách biệt quá trình kiểm soát quyền dữ liệu với quá trình tạo truy vấn bằng AI, ngăn mô hình truy cập dữ liệu ngoài phạm vi cho phép.
+* Hệ thống sử dụng kiến trúc bảo mật nhiều lớp để giảm nguy cơ rò rỉ dữ liệu ngay cả khi mô hình AI tạo truy vấn không chính xác.
 
-Tính năng này đặc biệt hữu ích khi bạn có nhiều ứng dụng chạy trên cùng một IAM role nhưng cần giới hạn quyền khác nhau (ví dụ: một pod chỉ đọc S3 bucket cụ thể, pod khác chỉ gọi một số API nhất định).
+Giải pháp đặc biệt hữu ích đối với các doanh nghiệp cung cấp ứng dụng AI cho nhiều khách hàng, nơi việc phân quyền và bảo vệ dữ liệu là yêu cầu quan trọng. Qua đó cho thấy Amazon Bedrock có thể kết hợp với các cơ chế bảo mật AWS để xây dựng hệ thống AI linh hoạt, an toàn và có khả năng mở rộng.
 
-...Hình ảnh...
+**Cấu trúc phân cấp**
+![Cấu trúc phân cấp](/images/structured.png)
 
-...Link...
+**Kiến trúc hệ thống**
+![Kiến trúc AI đa người dùng](/images/blog1.png)
 
-...Hướng dẫn...
+**Link bài gốc:**  https://aws.amazon.com/vi/blogs/machine-learning/multi-tenant-llm-analytics-with-row-level-security-how-we-built-a-secure-agent-on-aws/
+
