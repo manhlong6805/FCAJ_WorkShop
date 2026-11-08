@@ -24,10 +24,10 @@ Bài blog từ AWS giới thiệu cách PAR Technology xây dựng hệ thống 
 Giải pháp đặc biệt hữu ích đối với các doanh nghiệp cung cấp ứng dụng AI cho nhiều khách hàng, nơi việc phân quyền và bảo vệ dữ liệu là yêu cầu quan trọng. Qua đó cho thấy Amazon Bedrock có thể kết hợp với các cơ chế bảo mật AWS để xây dựng hệ thống AI linh hoạt, an toàn và có khả năng mở rộng.
 
 **Cấu trúc phân cấp**
-![Cấu trúc phân cấp](/images/structured.png)
+![Cấu trúc phân cấp](/FCAJ_WorkShop/images/structured.png)
 
 **Kiến trúc hệ thống**
-![Kiến trúc AI đa người dùng](/images/blog1.png)
+![Kiến trúc AI đa người dùng](/FCAJ_WorkShop/images/blog1.png)
 
 **Link bài gốc:**  https://aws.amazon.com/vi/blogs/machine-learning/multi-tenant-llm-analytics-with-row-level-security-how-we-built-a-secure-agent-on-aws/
 

@@ -32,7 +32,7 @@ Bài blog từ AWS giới thiệu cách kết hợp Amazon CloudFront và AWS We
 Việc kết hợp Amazon CloudFront và AWS WAF giúp website nâng cao tốc độ phản hồi, giảm tải cho máy chủ và tăng khả năng phòng vệ trước các yêu cầu độc hại. Đây là giải pháp quan trọng trong việc xây dựng các ứng dụng web có hiệu suất tốt, tính sẵn sàng cao và khả năng bảo mật hiệu quả trên nền tảng AWS.
 
 **Sơ đồ kiến trúc website kết hợp Amazon CloudFront và AWS WAF**
-![Sơ đồ kiến trúc website kết hợp Amazon CloudFront và AWS WAF](/images/blog2.png)
+![Sơ đồ kiến trúc website kết hợp Amazon CloudFront và AWS WAF](/FCAJ_WorkShop/images/blog2.png)
 
 **Link bài gốc:**https://aws.amazon.com/vi/blogs/networking-and-content-delivery/accelerate-and-protect-your-websites-using-amazon-cloudfront-and-aws-waf/
 

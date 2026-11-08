@@ -31,7 +31,7 @@ Bài blog từ AWS giới thiệu cách công ty Epsilon ứng dụng Amazon Nov
 Theo kết quả thử nghiệm nội bộ của Epsilon, Amazon Nova Act giúp giảm công sức xây dựng kịch bản kiểm thử khoảng 4–6 lần so với phương pháp Playwright tương đương. Giải pháp cho thấy tiềm năng của Agentic AI trong việc tự động hóa kiểm thử phần mềm, giảm thời gian xây dựng kịch bản và nâng cao hiệu quả quản lý chất lượng ứng dụng web.
 
 **Kiến trúc dịch vụ kiểm thử**
-![Kiến trúc dịch vụ kiểm thử](/images/blog3.png)
+![Kiến trúc dịch vụ kiểm thử](/FCAJ_WorkShop/images/blog3.png)
 
 **Link bài gốc:**https://aws.amazon.com/vi/blogs/machine-learning/building-intent-driven-ui-testing-with-amazon-nova-act/
 

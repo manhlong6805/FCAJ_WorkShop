@@ -24,9 +24,9 @@ An AWS blog post highlights how PAR Technology developed a multi-tenant AI syste
 This solution is particularly useful for businesses that provide AI applications to multiple clients, where access control and data protection are critical requirements. It demonstrates how Amazon Bedrock can be integrated with AWS security mechanisms to build AI systems that are flexible, secure, and scalable.
 
 **Hierarchical structure**
-![Hierarchical structure](/images/structured.png)
+![Hierarchical structure](/FCAJ_WorkShop/images/structured.png)
 
 **Multi-user AI architecture**
-![Multi-user AI architecture](/images/blog1.png)
+![Multi-user AI architecture](/FCAJ_WorkShop/images/blog1.png)
 
 **Link to original article**https://aws.amazon.com/vi/blogs/machine-learning/multi-tenant-llm-analytics-with-row-level-security-how-we-built-a-secure-agent-on-aws/

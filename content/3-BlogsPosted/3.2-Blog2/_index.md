@@ -32,7 +32,7 @@ This AWS blog post explains how to combine Amazon CloudFront and AWS Web Applica
 Combining Amazon CloudFront and AWS WAF helps websites improve response speeds, reduce server load, and strengthen defenses against malicious requests. This is a key solution for building web applications on the AWS platform that offer high performance, high availability, and robust security.
 
 **Website architecture diagram incorporating Amazon CloudFront and AWS WAF**
-![Website architecture diagram incorporating Amazon CloudFront and AWS WAF](/images/blog2.png)
+![Website architecture diagram incorporating Amazon CloudFront and AWS WAF](/FCAJ_WorkShop/images/blog2.png)
 
 **Original article link:**https://aws.amazon.com/vi/blogs/networking-and-content-delivery/accelerate-and-protect-your-websites-using-amazon-cloudfront-and-aws-waf/
 
