@@ -43,7 +43,7 @@ The finished distribution has **two origins**: one S3 origin serving the fronten
 3. Keep **Block all public access** enabled. Test an image already uploaded in 5.6.2:
 
 ```text
-https://<CF_DOMAIN>/images/products/xiaomi/xiaomi-series/xiaomi-15/image_1262703568.webp
+https://<CF_DOMAIN>/FCAJ_WorkShop/images/products/xiaomi/xiaomi-series/xiaomi-15/image_1262703568.webp
 ```
 
 The image should load through CloudFront while a direct unauthenticated S3 object URL remains inaccessible.
@@ -244,7 +244,7 @@ Verify the ordered behaviors:
 | `0` | `/api/*` | `techvina-ec2-backend` |
 | `1` | `Default (*)` | Frontend S3 + images |
 
-![TechVina cache behavior precedence](/images/5-Workshop/5.7-CloudFront-Cognito/5.7.1-CloudFront/04-cloudfront-behaviors-actual.png)
+![TechVina cache behavior precedence](/FCAJ_WorkShop/images/5-Workshop/5.7-CloudFront-Cognito/5.7.1-CloudFront/04-cloudfront-behaviors-actual.png)
 
 Test:
 
@@ -270,7 +270,7 @@ function handler(event) {
 
     if (
         uri === '/api' || uri.startsWith('/api/') ||
-        uri === '/images' || uri.startsWith('/images/') ||
+        uri === '/images' || uri.startsWith('/FCAJ_WorkShop/images/') ||
         uri === '/assets' || uri.startsWith('/assets/')
     ) {
         return request;
@@ -291,13 +291,13 @@ function handler(event) {
 4. Choose **Add association**, select the TechVina distribution, **Event type = Viewer request**, and **Cache behavior = Default (*)**. If a replacement warning appears, first inspect **Behaviors → Default (*) → Edit → Function associations** to check for an existing function.
 5. Choose **Add association** and allow the distribution configuration to deploy.
 
-![Successful SPA Function test](/images/5-Workshop/5.7-CloudFront-Cognito/5.7.1-CloudFront/05-spa-function-test.png)
+![Successful SPA Function test](/FCAJ_WorkShop/images/5-Workshop/5.7-CloudFront-Cognito/5.7.1-CloudFront/05-spa-function-test.png)
 
-Associate the function only with **Default (*)**, not `/api/*`. The function preserves `/assets/...`, `/images/...` and actual file URLs. Once the frontend is uploaded in 5.7.3, `/san-pham/21/21` can render the product page instead of S3's XML `AccessDenied` response.
+Associate the function only with **Default (*)**, not `/api/*`. The function preserves `/assets/...`, `/FCAJ_WorkShop/images/...` and actual file URLs. Once the frontend is uploaded in 5.7.3, `/san-pham/21/21` can render the product page instead of S3's XML `AccessDenied` response.
 
 ## Step 7 – Verify CloudFront routing
 
-1. Open `https://<CF_DOMAIN>/images/products/xiaomi/xiaomi-series/xiaomi-15/image_1262703568.webp` to verify image delivery from S3.
+1. Open `https://<CF_DOMAIN>/FCAJ_WorkShop/images/products/xiaomi/xiaomi-series/xiaomi-15/image_1262703568.webp` to verify image delivery from S3.
 2. Open `https://<CF_DOMAIN>/api/san-pham/noi-bat` to verify the Spring Boot JSON response through the HTTPS origin.
 3. Verify the S3 and `techvina-ec2-backend` origins and the order of `/api/*` and `Default (*)` behaviors.
 4. Once the frontend build has been deployed in **5.7.3**, test `/`, `/login`, `/san-pham/21/21`, and `/assets/`.

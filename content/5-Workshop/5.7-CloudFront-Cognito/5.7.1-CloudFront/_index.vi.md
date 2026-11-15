@@ -43,7 +43,7 @@ CloudFront distribution của TechVina dùng **hai origins**: một S3 origin ph
 3. Giữ **Block all public access**. Mở thử ảnh đã tải ở 5.6.2 qua CloudFront:
 
 ```text
-https://<CF_DOMAIN>/images/products/xiaomi/xiaomi-series/xiaomi-15/image_1262703568.webp
+https://<CF_DOMAIN>/FCAJ_WorkShop/images/products/xiaomi/xiaomi-series/xiaomi-15/image_1262703568.webp
 ```
 
 Kết quả là hình ảnh hiển thị; truy cập trực tiếp object S3 bằng URL công khai vẫn bị từ chối.
@@ -244,7 +244,7 @@ Sau khi tạo, kiểm tra thứ tự behaviors:
 | `0` | `/api/*` | `techvina-ec2-backend` |
 | `1` | `Default (*)` | Frontend S3 + images |
 
-![Thứ tự các cache behaviors của TechVina](/images/5-Workshop/5.7-CloudFront-Cognito/5.7.1-CloudFront/04-cloudfront-behaviors-actual.png)
+![Thứ tự các cache behaviors của TechVina](/FCAJ_WorkShop/images/5-Workshop/5.7-CloudFront-Cognito/5.7.1-CloudFront/04-cloudfront-behaviors-actual.png)
 
 Kiểm thử API:
 
@@ -270,7 +270,7 @@ function handler(event) {
 
     if (
         uri === '/api' || uri.startsWith('/api/') ||
-        uri === '/images' || uri.startsWith('/images/') ||
+        uri === '/images' || uri.startsWith('/FCAJ_WorkShop/images/') ||
         uri === '/assets' || uri.startsWith('/assets/')
     ) {
         return request;
@@ -291,13 +291,13 @@ function handler(event) {
 4. Chọn **Add association**, **Distribution** là distribution TechVina, **Event type = Viewer request**, **Cache behavior = Default (*)**. Nếu AWS hiển thị cảnh báo ghi đè Function, kiểm tra **Behaviors → Default (*) → Edit → Function associations** trước khi xác nhận.
 5. Chọn **Add association** và đợi distribution triển khai cấu hình mới.
 
-![Kết quả kiểm thử SPA Function](/images/5-Workshop/5.7-CloudFront-Cognito/5.7.1-CloudFront/05-spa-function-test.png)
+![Kết quả kiểm thử SPA Function](/FCAJ_WorkShop/images/5-Workshop/5.7-CloudFront-Cognito/5.7.1-CloudFront/05-spa-function-test.png)
 
-Chỉ gắn Function với **Default (*)**, không gắn với `/api/*`. Mã giữ nguyên `/assets/...`, `/images/...` và các URL file thật. Khi Frontend đã được upload tại 5.7.3, đường dẫn `/san-pham/21/21` sẽ hiển thị giao diện chi tiết sản phẩm thay vì XML `AccessDenied` từ S3.
+Chỉ gắn Function với **Default (*)**, không gắn với `/api/*`. Mã giữ nguyên `/assets/...`, `/FCAJ_WorkShop/images/...` và các URL file thật. Khi Frontend đã được upload tại 5.7.3, đường dẫn `/san-pham/21/21` sẽ hiển thị giao diện chi tiết sản phẩm thay vì XML `AccessDenied` từ S3.
 
 ## Step 7 – Kiểm tra kết quả CloudFront
 
-1. Kiểm tra `https://<CF_DOMAIN>/images/products/xiaomi/xiaomi-series/xiaomi-15/image_1262703568.webp` trả ảnh từ S3.
+1. Kiểm tra `https://<CF_DOMAIN>/FCAJ_WorkShop/images/products/xiaomi/xiaomi-series/xiaomi-15/image_1262703568.webp` trả ảnh từ S3.
 2. Kiểm tra `https://<CF_DOMAIN>/api/san-pham/noi-bat` trả JSON từ Spring Boot qua HTTPS origin.
 3. Trong **CloudFront → Origins**, xác nhận hai origins là S3 và `techvina-ec2-backend`; trong **Behaviors**, xác nhận `/api/*` và `Default (*)` đúng thứ tự.
 4. Sau khi triển khai bản build Frontend ở **5.7.3**, kiểm tra `/`, `/login`, `/san-pham/21/21` và các tài nguyên `/assets/`.

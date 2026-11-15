@@ -107,7 +107,7 @@ ls -lah dist
 ls -lah dist/images
 ```
 
-The build must contain `dist/index.html`, `dist/assets/`, `dist/images/`, and `dist/favicon.svg`.
+The build must contain `dist/index.html`, `dist/assets/`, `dist/FCAJ_WorkShop/images/`, and `dist/favicon.svg`.
 
 ## Step 4 – Verify EC2 IAM permissions for frontend S3 uploads
 
@@ -185,15 +185,15 @@ Verify the banner, categories, and **four featured products**. Under **F12 → N
 |---|---|
 | `/api/danh-muc/active` | `200`, categories JSON |
 | `/api/san-pham/noi-bat` | `200`, four products in JSON |
-| `/images/products/...webp` | `200`, S3 image via CloudFront |
+| `/FCAJ_WorkShop/images/products/...webp` | `200`, S3 image via CloudFront |
 | `/san-pham/21/21` | Xiaomi 15 details rendered by React Router |
 | `/login` | Frontend login page rendered |
 
 If requests appear as `//api/...` with `401`, remove the trailing slash from `VITE_API_BASE_URL`, then **rebuild → sync to S3 → invalidate**. If a client-side route returns S3 XML `AccessDenied`, verify `techvina-spa-routing` in **5.7.1** is associated with **Default (*) → Viewer request**.
 
-![TechVina storefront with categories and products](/images/5-Workshop/5.7-CloudFront-Cognito/5.7.3-Integration/03-frontend-products-actual.png)
+![TechVina storefront with categories and products](/FCAJ_WorkShop/images/5-Workshop/5.7-CloudFront-Cognito/5.7.3-Integration/03-frontend-products-actual.png)
 
-![Xiaomi 15 product details rendered by React Router](/images/5-Workshop/5.7-CloudFront-Cognito/5.7.3-Integration/04-product-detail-actual.png)
+![Xiaomi 15 product details rendered by React Router](/FCAJ_WorkShop/images/5-Workshop/5.7-CloudFront-Cognito/5.7.3-Integration/04-product-detail-actual.png)
 
 ## Step 8 – Test Cognito sign-in, ADMIN role, and sign-out
 
@@ -203,6 +203,6 @@ If requests appear as `//api/...` with `401`, remove the trailing slash from `VI
 4. Choose **Đăng xuất**. The website returns to a signed-out state, showing **Tài khoản** in the navigation.
 5. Choose **Đăng nhập với Amazon Cognito** again and confirm Cognito displays **Sign in** rather than automatically restoring the previous ADMIN session.
 
-![Amazon Cognito sign-in page](/images/5-Workshop/5.7-CloudFront-Cognito/5.7.3-Integration/05-cognito-signin-actual.png)
+![Amazon Cognito sign-in page](/FCAJ_WorkShop/images/5-Workshop/5.7-CloudFront-Cognito/5.7.3-Integration/05-cognito-signin-actual.png)
 
 Do not include passwords, authorization codes, tokens, or callback URLs containing a `code` parameter in documentation or screenshots. Seeing the ADMIN role in the frontend confirms authentication and role display, but is not a substitute for authorization tests on protected API operations.

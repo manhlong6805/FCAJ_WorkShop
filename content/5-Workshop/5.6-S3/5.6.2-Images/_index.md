@@ -7,10 +7,10 @@ pre: "<b>5.6.2.</b> "
 
 ## Step 1 – Identify image files
 
-Open `frontend/public/images/` in the TechVina repository on the `master` branch:
+Open `frontend/public/FCAJ_WorkShop/images/` in the TechVina repository on the `master` branch:
 
 ```text
-frontend/public/images/
+frontend/public/FCAJ_WorkShop/images/
 ├── banners/
 ├── categories/
 └── products/
@@ -22,7 +22,7 @@ frontend/public/images/
 The `phone_store` database stores relative image paths, for example:
 
 ```text
-/images/products/xiaomi/xiaomi-series/xiaomi-15/image_1262703568.webp
+/FCAJ_WorkShop/images/products/xiaomi/xiaomi-series/xiaomi-15/image_1262703568.webp
 ```
 
 The matching S3 object key must be `images/products/xiaomi/xiaomi-series/xiaomi-15/image_1262703568.webp` in the frontend bucket. Do not change the paths stored in MySQL.
@@ -32,12 +32,12 @@ The matching S3 object key must be `images/products/xiaomi/xiaomi-series/xiaomi-
 1. Open **Amazon S3 → Buckets → `techvina-frontend-<AWS_ACCOUNT_ID>`**.
 2. Stay at the **bucket root**, not inside `images/`, and choose **Upload → Add folder**.
 3. Select the entire **`frontend/public/images`** folder on your computer, including `banners`, `categories`, and `products`.
-4. Verify that each destination path starts with `images/`, **not** `images/images/`.
+4. Verify that each destination path starts with `images/`, **not** `images/FCAJ_WorkShop/images/`.
 5. Choose **Upload** and review the **Succeeded** count.
 
 The actual TechVina deployment uploaded **66 files totaling 2.4 MB, with no failed files**.
 
-![Successful upload of 66 images to the frontend bucket](/images/5-Workshop/5.6-S3/5.6.2-Images/03-images-upload-success.png)
+![Successful upload of 66 images to the frontend bucket](/FCAJ_WorkShop/images/5-Workshop/5.6-S3/5.6.2-Images/03-images-upload-success.png)
 
 ## Step 3 – Verify S3 object keys
 
@@ -53,7 +53,7 @@ Check an object under `images/products/` and compare its **Object key** with the
 
 ## Step 4 – Match paths in the Vite build
 
-When `npm run build` runs in **5.7.3**, Vite copies `frontend/public/images/` to `frontend/dist/images/`:
+When `npm run build` runs in **5.7.3**, Vite copies `frontend/public/FCAJ_WorkShop/images/` to `frontend/dist/FCAJ_WorkShop/images/`:
 
 ```text
 frontend/dist/

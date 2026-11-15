@@ -7,10 +7,10 @@ pre: "<b>5.6.2.</b> "
 
 ## Step 1 – Xác định nguồn hình ảnh
 
-Trong repository TechVina (nhánh `master`), mở thư mục `frontend/public/images/`:
+Trong repository TechVina (nhánh `master`), mở thư mục `frontend/public/FCAJ_WorkShop/images/`:
 
 ```text
-frontend/public/images/
+frontend/public/FCAJ_WorkShop/images/
 ├── banners/
 ├── categories/
 └── products/
@@ -22,7 +22,7 @@ frontend/public/images/
 Các bản ghi trong cơ sở dữ liệu `phone_store` lưu đường dẫn ảnh tương đối, ví dụ:
 
 ```text
-/images/products/xiaomi/xiaomi-series/xiaomi-15/image_1262703568.webp
+/FCAJ_WorkShop/images/products/xiaomi/xiaomi-series/xiaomi-15/image_1262703568.webp
 ```
 
 Để ảnh hiển thị đúng, đối tượng S3 phải có key `images/products/xiaomi/xiaomi-series/xiaomi-15/image_1262703568.webp` trong bucket Frontend. Không thay đổi giá trị đường dẫn trong MySQL.
@@ -32,12 +32,12 @@ Các bản ghi trong cơ sở dữ liệu `phone_store` lưu đường dẫn ả
 1. Mở **Amazon S3 → Buckets → `techvina-frontend-<AWS_ACCOUNT_ID>`**.
 2. Ở **thư mục gốc của bucket** (không mở thư mục `images/`), nhấn **Upload → Add folder**.
 3. Trên máy tính, chọn nguyên thư mục **`frontend/public/images`**, bao gồm `banners`, `categories` và `products`.
-4. Xác nhận tên các đường dẫn đích bắt đầu bằng `images/`, **không phải** `images/images/`.
+4. Xác nhận tên các đường dẫn đích bắt đầu bằng `images/`, **không phải** `images/FCAJ_WorkShop/images/`.
 5. Nhấn **Upload** và kiểm tra mục **Succeeded**.
 
 Trong lần triển khai TechVina đã thực hiện, kết quả là **66 file, tổng dung lượng 2,4 MB, không có file lỗi**.
 
-![Kết quả tải 66 hình ảnh lên bucket Frontend](/images/5-Workshop/5.6-S3/5.6.2-Images/03-images-upload-success.png)
+![Kết quả tải 66 hình ảnh lên bucket Frontend](/FCAJ_WorkShop/images/5-Workshop/5.6-S3/5.6.2-Images/03-images-upload-success.png)
 
 ## Step 3 – Kiểm tra đối tượng S3
 
@@ -53,7 +53,7 @@ Mở một file ảnh thuộc `images/products/`, kiểm tra **Object key** có 
 
 ## Step 4 – Đối chiếu đường dẫn với bản build Vite
 
-Khi chạy `npm run build` ở mục **5.7.3**, Vite sao chép thư mục `frontend/public/images/` vào `frontend/dist/images/`:
+Khi chạy `npm run build` ở mục **5.7.3**, Vite sao chép thư mục `frontend/public/FCAJ_WorkShop/images/` vào `frontend/dist/FCAJ_WorkShop/images/`:
 
 ```text
 frontend/dist/
