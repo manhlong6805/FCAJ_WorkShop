@@ -7,117 +7,101 @@ pre: " <b> 4.1. </b> "
 ---
 
 
-# Summary Report: “GenAI-powered App-DB Modernization workshop”
+# Summary Report: “AWS COMMUNITY DAY VIETNAM 2026”
 
 ### Event Objectives
 
-- Share best practices in modern application design
-- Introduce Domain-Driven Design (DDD) and event-driven architecture
-- Provide guidance on selecting the right compute services
-- Present AI tools to support the development lifecycle
+- Explore modern cloud computing and AWS services.
+- Introduce Generative AI and Agentic AI.
+- Improve cloud security, observability, and cost optimization.
+- Connect with AWS experts and community members.
 
 ### Speakers
 
-- **Jignesh Shah** – Director, Open Source Databases
-- **Erica Liu** – Sr. GTM Specialist, AppMod
-- **Fabrianne Effendi** – Assc. Specialist SA, Serverless Amazon Web Services
+- **Hồ Việt Anh** – AWS Community Hero
+- **Phóng Phạm** – FCAJ Program Admin
+- **Tâm Nguyễn** – Head of Cloud Department, Cloudino
+- **Nam Lã** – AWS Community Leader
+- **Trần Đại Đồng** – CTO, Cloudino
+- **Phan Tuấn Anh** – CIO, Cloudino
+- **Kha Văn** – AWS Community Builder
+- **Yến Trịnh** – AWS Community Builder
+- **Dũng Lương** – AWS Student Builder
+- **Tuấn Vũ** – AWS Community Builder
+- **Đức Thắng** – Head of Innovation, Twendee
+- **Quân Phạm** – AI Engineer, Cloudino
+- **Quân Nguyễn** – AI Engineer / AWSVNUG User
+- **Hạnh Phạm** – AWS Community Builder
 
 ### Key Highlights
 
-#### Identifying the drawbacks of legacy application architecture
+#### Amazon Quick
 
-- Long product release cycles → Lost revenue/missed opportunities  
-- Inefficient operations → Reduced productivity, higher costs  
-- Non-compliance with security regulations → Security breaches, loss of reputation  
+- Applying AI to data analytics and automation processes.
+- Enhancing workplace productivity.
 
-#### Transitioning to modern application architecture – Microservices
+#### Software Development with AI Agents
 
-Migrating to a modular system — each function is an **independent service** communicating via **events**, built on three core pillars:
+- Integrating AI agents into the software development lifecycle.
+- Automating tasks, testing, and maintenance.
 
-- **Queue Management**: Handle asynchronous tasks  
-- **Caching Strategy**: Optimize performance  
-- **Message Handling**: Flexible inter-service communication  
+#### Cloud Security
 
-#### Domain-Driven Design (DDD)
+- Using **AWS IAM Roles Anywhere** for secure workload access.
+- Implementing temporary credentials and the principle of least privilege.
 
-- **Four-step method**: Identify domain events → arrange timeline → identify actors → define bounded contexts  
-- **Bookstore case study**: Demonstrates real-world DDD application  
-- **Context mapping**: 7 patterns for integrating bounded contexts  
+#### Observability on AWS
 
-#### Event-Driven Architecture
+- Monitoring applications via metrics, logs, and traces.
+- Utilizing **Datadog** to improve system performance and reliability.
 
-- **3 integration patterns**: Publish/Subscribe, Point-to-point, Streaming  
-- **Benefits**: Loose coupling, scalability, resilience  
-- **Sync vs async comparison**: Understanding the trade-offs  
+#### AI Agents for Enterprise
 
-#### Compute Evolution
+- Transforming AI prototypes into production-ready applications.
+- Ensuring scalability, security, and reliability.
 
-- **Shared Responsibility Model**: EC2 → ECS → Fargate → Lambda  
-- **Serverless benefits**: No server management, auto-scaling, pay-for-value  
-- **Functions vs Containers**: Criteria for appropriate choice  
+#### Kiro
 
-#### Amazon Q Developer
+- AI-assisted application setup and specification-driven development.
+- Improving software quality and development efficiency.
 
-- **SDLC automation**: From planning to maintenance  
-- **Code transformation**: Java upgrade, .NET modernization  
-- **AWS Transform agents**: VMware, Mainframe, .NET migration  
+#### Cost Optimization
+
+- Tracking usage and costs within Amazon Quick.
+- Optimizing cloud resources and eliminating unnecessary expenses.
 
 ### Key Takeaways
 
-#### Design Mindset
+- **AI**: AI agents facilitate the automation of tasks throughout the software development process.
+- **Cloud Security**: Protecting identities and access.
+- **Observability**: Proactively monitoring applications. - **Cost Optimization**: Balancing resource consumption with value delivery for the business.
 
-- **Business-first approach**: Always start from the business domain, not the technology  
-- **Ubiquitous language**: Importance of a shared vocabulary between business and tech teams  
-- **Bounded contexts**: Identifying and managing complexity in large systems  
+### Professional Applications
 
-#### Technical Architecture
-
-- **Event storming technique**: Practical method for modeling business processes  
-- Use **event-driven communication** instead of synchronous calls  
-- **Integration patterns**: When to use sync, async, pub/sub, streaming  
-- **Compute spectrum**: Criteria for choosing between VM, containers, and serverless  
-
-#### Modernization Strategy
-
-- **Phased approach**: No rushing — follow a clear roadmap  
-- **7Rs framework**: Multiple modernization paths depending on the application  
-- **ROI measurement**: Cost reduction + business agility  
-
-### Applying to Work
-
-- **Apply DDD** to current projects: Event storming sessions with business teams  
-- **Refactor microservices**: Use bounded contexts to define service boundaries  
-- **Implement event-driven patterns**: Replace some sync calls with async messaging  
-- **Adopt serverless**: Pilot AWS Lambda for suitable use cases  
-- **Try Amazon Q Developer**: Integrate into the dev workflow to boost productivity  
+- Utilizing **Kiro** to support software development.
+- Applying **Agentic AI** to automate repetitive task cycles.
+- Implementing best practices for AWS IAM security.
+- Monitoring applications using **Amazon CloudWatch** and **Datadog**.
+- Optimizing cloud resource usage and associated costs.
 
 ### Event Experience
 
-Attending the **“GenAI-powered App-DB Modernization”** workshop was extremely valuable, giving me a comprehensive view of modernizing applications and databases using advanced methods and tools. Key experiences included:
+Attending **AWS Community Day Vietnam 2026** is an opportunity to explore cutting-edge cloud technologies and artificial intelligence.
 
-#### Learning from highly skilled speakers
-- Experts from AWS and major tech organizations shared **best practices** in modern application design.  
-- Through real-world case studies, I gained a deeper understanding of applying **DDD** and **Event-Driven Architecture** to large projects.  
+#### Technical Knowledge
 
-#### Hands-on technical exposure
-- Participating in **event storming** sessions helped me visualize how to **model business processes** into domain events.  
-- Learned how to **split microservices** and define **bounded contexts** to manage large-system complexity.  
-- Understood trade-offs between **synchronous and asynchronous communication** and integration patterns like **pub/sub, point-to-point, streaming**.  
+- Gain insights into AWS services, Agentic AI, and cloud security.
+- Master modern software development and monitoring methodologies.
 
-#### Leveraging modern tools
-- Explored **Amazon Q Developer**, an AI tool for SDLC support from planning to maintenance.  
-- Learned to **automate code transformation** and pilot serverless with **AWS Lambda** to improve productivity.  
+#### Modern Tools
 
-#### Networking and discussions
-- The workshop offered opportunities to exchange ideas with experts, peers, and business teams, enhancing the **ubiquitous language** between business and tech.  
-- Real-world examples reinforced the importance of the **business-first approach** rather than focusing solely on technology.  
+- Explore Amazon Quick, Kiro, and Datadog.
+- Learn about AI-driven workflow automation.
 
-#### Lessons learned
-- Applying DDD and event-driven patterns reduces **coupling** while improving **scalability** and **resilience**.  
-- Modernization requires a **phased approach** with **ROI measurement**; rushing the process can be risky.  
-- AI tools like Amazon Q Developer can significantly **boost productivity** when integrated into the current workflow.  
+#### Networking and Discussion
+
+- Connect with AWS experts and fellow community members.
+- Exchange technical knowledge and discover career opportunities.
 
 #### Some event photos
 *Add your event photos here*  
-
-> Overall, the event not only provided technical knowledge but also helped me reshape my thinking about application design, system modernization, and cross-team collaboration.
