@@ -7,7 +7,7 @@ pre: " <b> 1. </b> "
 ---
 
 
-This worklog summarizes my 12-week internship from August 8 to November 7, 2026. It records the AWS knowledge, hands-on activities, community events, group-project progress, and reporting work completed during the program.
+This worklog summarizes my 12-week internship, spanning from August 8 to November 14, 2026. It documents my acquisition of AWS knowledge, hands-on exercises, participation in community events, progress on team projects, and the finalization of my internship report throughout the program.
 
 **Week 1:** [Attend the kick-off meeting](1.1-week1/)
 

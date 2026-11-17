@@ -17,7 +17,7 @@ pre: " <b> 1.12. </b> "
 | Day | Task                                                                                                                                                                                                   | Start Date | Completion Date | Reference Material                        |
 | --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------- | --------------- | ----------------------------------------- |
 | 2-6  | Conduct a final review of the internship report contents.| 02/11/2026 | 06/11/2026      |
-|  7  | submit a report| 07/11/2026 | 07/11/2026      | 
+
 
 ### Week 12 Achievements:
 * Completed the group project and verified the final result against the project objectives.

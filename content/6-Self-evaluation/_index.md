@@ -7,12 +7,11 @@ pre: " <b> 6. </b> "
 ---
 
 
-During my internship at **[Company/Organization Name]** from **[start date]** to **[end date]**, I had the opportunity to learn, practice, and apply the knowledge acquired in school to a real-world working environment.  
-I participated in **[briefly describe the main project or task]**, through which I improved my skills in **[list skills: programming, analysis, reporting, communication, etc.]**.  
+During my internship at **[Amazon Web Services Vietnam Com]** from August 8, 2026, to November 14, 2026, I had the opportunity to learn, develop, and apply the knowledge I had acquired within a real-world professional environment. I actively contributed ideas and collaborated with team members to implement various functions as planned; through this process, I progressively enhanced my professional expertise and teamwork skills, while gaining hands-on experience with Amazon Web Services applications and services.
 
-In terms of work ethic, I always strived to complete tasks well, complied with workplace regulations, and actively engaged with colleagues to improve work efficiency.
+Regarding my professional conduct, I consistently strive to perform my duties well, adhere to internal regulations, and engage actively with colleagues to enhance work efficiency.
 
-To objectively reflect on my internship period, I would like to evaluate myself based on the following criteria:
+To provide an objective reflection of my internship experience, I have evaluated my own performance based on the following criteria:
 
 | No. | Criteria                            | Description                                                                                      | Good | Fair | Average |
 | --- | ----------------------------------- | ------------------------------------------------------------------------------------------------ | ---- | ---- | ------- |
